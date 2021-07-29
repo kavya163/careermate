@@ -1,0 +1,24 @@
+<?php
+session_start();
+?>
+<html>
+<body>
+<form method="post">
+ROLL NUMBER:<input type="text" name="rollno" placeholder="rollno">
+SEM :<input type="text" name="sem" placeholder="sem">
+CGPA :<input type="text" name="cgpa" placeholder="cgpa">
+<center><input type="submit" value="submit"name="submit"></center>
+</body>
+</html>
+<?php
+if(isset($_POST['submit']))
+{
+require'c.php';
+$rollno=$_POST['rollno'];
+$sem=$_POST['sem'];
+$cgpa=$_POST['cgpa'];
+$sql1="UPDATE report SET sem='$sem',cgpa='$cgpa' WHERE rollno='$rollno'";
+echo $sql1;
+mysqli_query($con,$sql1);
+}
+?>
